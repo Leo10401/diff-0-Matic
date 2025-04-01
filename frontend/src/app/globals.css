@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@layer base {
+  :root {
+    /* Container */
+    --container-padding: 2rem;
+    --container-2xl: 1400px;
+
+    /* Colors */
+    --border: 220, 13%, 91%;
+    --input: 220, 13%, 91%;
+    --ring: 220, 13%, 91%;
+    --background: 220, 13%, 95%;
+    --foreground: 220, 13%, 20%;
+    --primary: 220, 80%, 50%;
+    --primary-foreground: 220, 80%, 95%;
+    --secondary: 260, 80%, 50%;
+    --secondary-foreground: 260, 80%, 95%;
+    --destructive: 0, 84%, 60%;
+    --destructive-foreground: 0, 84%, 95%;
+    --muted: 220, 13%, 70%;
+    --muted-foreground: 220, 13%, 30%;
+    --accent: 45, 90%, 50%;
+    --accent-foreground: 45, 90%, 95%;
+    --card: 220, 13%, 98%;
+    --card-foreground: 220, 13%, 10%;
+
+    /* Border Radius */
+    --radius: 8px;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    max-width: var(--container-2xl);
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@layer utilities {
+  /* Border Radius */
+  .rounded-lg {
+    border-radius: var(--radius);
+  }
+  .rounded-md {
+    border-radius: calc(var(--radius) - 2px);
+  }
+  .rounded-sm {
+    border-radius: calc(var(--radius) - 4px);
+  }
+
+  /* Keyframes */
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  /* Animations */
+  .animate-accordion-down {
+    animation: accordion-down 0.2s ease-out;
+  }
+  .animate-accordion-up {
+    animation: accordion-up 0.2s ease-out;
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
