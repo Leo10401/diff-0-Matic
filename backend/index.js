@@ -7,7 +7,7 @@ import videoRoutes from "./routes/videoRoutes.js";
 import textRoutes from "./routes/textRoutes.js";
 import imagesRoutes from "./routes/imagesRoutes.js";
 import folderRoutes from "./routes/folderRoutes.js";
-
+import docsRoutes from "./routes/docsRoutes.js";
 // Load environment variables
 dotenv.config();
 
@@ -35,6 +35,7 @@ app.use("/api/videos", videoRoutes);
 app.use("/api/text", textRoutes);
 app.use("/api/images", imagesRoutes);
 app.use("/api/folder", folderRoutes);
+app.use("/api/docs", docsRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;

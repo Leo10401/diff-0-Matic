@@ -20,6 +20,7 @@
     "cloudinary": "^2.6.0",
     "cors": "^2.8.5",
     "diff": "^7.0.0",
+    "diff-match-patch": "^1.0.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "ffmpeg-static": "^5.2.0",
@@ -28,11 +29,15 @@
     "image-hash": "^5.3.2",
     "image-ssim": "^0.2.0",
     "jimp": "^1.6.0",
+    "mammoth": "^1.9.0",
     "multer": "^1.4.5-lts.1",
     "node-cron": "^3.0.3",
     "nodemon": "^3.1.9",
+    "pdf-parse": "^1.1.1",
+    "pdf.js-extract": "^0.2.1",
     "pixelmatch": "^7.1.0",
     "sharp": "^0.33.5",
-    "ssim.js": "^3.5.0"
+    "ssim.js": "^3.5.0",
+    "tesseract.js": "^6.0.0"
   }
 }

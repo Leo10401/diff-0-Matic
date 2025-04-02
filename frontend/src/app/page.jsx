@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
-import { Video, ImageIcon, FileText, AudioLines, ArrowRight, FoldersIcon } from "lucide-react"
+import { Video, ImageIcon, FileText, AudioLines, ArrowRight, FoldersIcon, FileIcon } from "lucide-react"
 import MediaCompare from "@/components/media-compare"
 import HeroSection from "@/components/hero-section"
 import FeatureSection from "@/components/feature-section"
@@ -41,7 +41,7 @@ export default function Home() {
                   Upload and compare videos, audio, images, or text side by side to spot differences and make better
                   decisions.
                 </p>
-                <TabsList className="grid grid-cols-2 md:grid-cols-5 w-full max-w-xl">
+                <TabsList className="grid grid-cols-2 md:grid-cols-6 w-full max-w-xl">
                   <TabsTrigger value="video" className="flex  items-center gap-1">
                     <Video className="h-4 w-4" />
                     <span>Video</span>
@@ -61,6 +61,10 @@ export default function Home() {
                   <TabsTrigger value="folder" className="flex items-center gap-1">
                     <FoldersIcon className="h-4 w-4" />
                     <span>Folders</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="docs" className="flex items-center gap-1">
+                    <FileIcon className="h-4 w-4" />
+                    <span>Documents</span>
                   </TabsTrigger>
                 </TabsList>
               </div>
@@ -82,6 +86,9 @@ export default function Home() {
               </TabsContent>
               <TabsContent value="folder" className="mt-0">
                 <MediaCompare type="folder" />
+              </TabsContent>
+              <TabsContent value="docs" className="mt-0">
+                <MediaCompare type="docs" />
               </TabsContent>
             </Tabs>
           </div>

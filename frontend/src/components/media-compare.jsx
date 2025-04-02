@@ -11,6 +11,7 @@ import AudioDiffChecker from "@/app/audio/page"
 import TextComparison from "@/app/Text/page"
 import ImageCompare from "@/app/images/page"
 import FolderComparison from "@/app/Folders/page"
+import Docs from "@/app/docs/page"
 
 const API_URL = "http://localhost:5000/api/videos"
 
@@ -45,6 +46,9 @@ export default function MediaCompare({ type }) {
           )}
           {type === "folder" && (
             <FolderComparison />
+          )}
+          {type === "docs" && (
+            <Docs/>
           )}
 
           {type === "audio" && (
