@@ -39,7 +39,7 @@ const FolderComparison = () => {
     formData.append("folders", folder2);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/folder/compare/folders", formData, {
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/folder/compare/folders`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -63,7 +63,7 @@ const FolderComparison = () => {
     formData.append("zips", zip2);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/folder/compare/zip", formData, {
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/folder/compare/zip`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -96,42 +96,6 @@ const FolderComparison = () => {
         <h1 className="text-2xl font-bold mb-4">File Comparison Tool</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-4 border rounded">
-            <h2 className="text-lg font-semibold mb-3">Folder Comparison</h2>
-            <form onSubmit={compareFolders}>
-              <div className="space-y-3 mb-4">
-                <div>
-                  <label className="block mb-1">First Folder:</label>
-                  <input 
-                    type="file" 
-                    onChange={handleFolder1Change} 
-                    webkitdirectory="true"
-                    directory="true"
-                    className="w-full border p-2 rounded" 
-                    required 
-                  />
-                </div>
-                <div>
-                  <label className="block mb-1">Second Folder:</label>
-                  <input 
-                    type="file" 
-                    onChange={handleFolder2Change} 
-                    webkitdirectory="true"
-                    directory="true"
-                    className="w-full border p-2 rounded" 
-                    required 
-                  />
-                </div>
-              </div>
-              <button 
-                type="submit" 
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                disabled={loading}
-              >
-                {loading ? 'Comparing...' : 'Compare Folders'}
-              </button>
-            </form>
-          </div>
           
           <div className="p-4 border rounded">
             <h2 className="text-lg font-semibold mb-3">ZIP File Comparison</h2>

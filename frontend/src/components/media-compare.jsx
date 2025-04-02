@@ -13,7 +13,7 @@ import ImageCompare from "@/app/images/page"
 import FolderComparison from "@/app/Folders/page"
 import Docs from "@/app/docs/page"
 
-const API_URL = "http://localhost:5000/api/videos"
+const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/videos`
 
 export default function MediaCompare({ type }) {
   const [leftMedia, setLeftMedia] = useState(null)

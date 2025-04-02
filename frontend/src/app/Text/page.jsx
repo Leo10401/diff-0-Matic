@@ -9,7 +9,7 @@ export default function TextComparison() {
 
   const compareTexts = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/api/text/compare-text", { text1, text2 });
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/text/compare-text`, { text1, text2 });
       setDiffs(response.data.differences);
     } catch (error) {
       console.error("Error comparing texts:", error);

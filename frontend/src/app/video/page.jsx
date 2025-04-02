@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Upload } from "lucide-react"
 import axios from "axios"
 
-const API_URL = "http://localhost:5000/api/videos"
+const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/videos`
 
 export default function VideoCompare() {
   const [leftVideo, setLeftVideo] = useState(null)
@@ -139,11 +139,11 @@ export default function VideoCompare() {
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="flex-1 flex flex-col items-center">
                     <p className="mb-2">Video 1</p>
-                    <img src={`http://localhost:5000${item.frame1}`} className="object-contain w-full h-64" />
+                    <img src={`${process.env.NEXT_PUBLIC_API_URL}${item.frame1}`} className="object-contain w-full h-64" />
                   </div>
                   <div className="flex-1 flex flex-col items-center">
                     <p className="mb-2">Video 2</p>
-                    <img src={`http://localhost:5000${item.frame2}`} className="object-contain w-full h-64" />
+                    <img src={`${process.env.NEXT_PUBLIC_API_URL}${item.frame2}`} className="object-contain w-full h-64" />
                   </div>
                 </div>
               </div>

@@ -91,7 +91,7 @@ export default function ImageCompare() {
         formData.append("images", images.image2);
 
         try {
-            const response = await fetch("http://localhost:5000/api/images", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/images`, {
                 method: "POST",
                 body: formData,
             });
