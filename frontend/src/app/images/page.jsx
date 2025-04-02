@@ -268,13 +268,13 @@ export default function ImageCompare() {
                 ))}
             </div>
             
-            <button 
+            {/* <button 
                 onClick={handleCompare} 
                 className="bg-green-500 text-white px-6 py-2 rounded" 
                 disabled={loading}
             >
                 {loading ? "Processing..." : "Compare Images"}
-            </button>
+            </button> */}
             
             {error && <p className="text-red-500">{error}</p>}
             

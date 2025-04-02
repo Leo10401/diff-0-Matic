@@ -41,7 +41,7 @@ export default function Home() {
                   Upload and compare videos, audio, images, or text side by side to spot differences and make better
                   decisions.
                 </p>
-                <TabsList className="grid grid-cols-2 md:grid-cols-6 w-full max-w-xl">
+                <TabsList className="grid grid-cols-3 md:grid-cols-6 w-full max-w-xl">
                   <TabsTrigger value="video" className="flex  items-center gap-1">
                     <Video className="h-4 w-4" />
                     <span>Video</span>
