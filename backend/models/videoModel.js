@@ -4,24 +4,25 @@ import { ssim } from "ssim.js";
 import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
-import ffmpegPath from "ffmpeg-static";
 
 // Get current file path for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Set FFmpeg path from the ffmpeg-static package
-console.log(`Setting FFmpeg path to: ${ffmpegPath}`);
+// Try to use system FFmpeg first, then fall back to the package
+const tryFfmpeg = () => {
+  try {
+    // On Render, we'll rely on the system FFmpeg
+    console.log("Using system FFmpeg");
+    return ffmpeg;
+  } catch (error) {
+    console.error(`❌ Error setting up FFmpeg: ${error.message}`);
+    throw error;
+  }
+};
 
-// Verify that the FFmpeg binary exists
-if (!fs.existsSync(ffmpegPath)) {
-  console.error(`❌ FFmpeg not found at: ${ffmpegPath}`);
-} else {
-  console.log(`✅ Found FFmpeg at: ${ffmpegPath}`);
-}
-
-// Set FFmpeg path
-ffmpeg.setFfmpegPath(ffmpegPath);
+// Initialize FFmpeg
+const ffmpegInstance = tryFfmpeg();
 
 // Extract frames from video
 export const extractFrames = async (videoPath, outputFolder) => {
@@ -34,7 +35,7 @@ export const extractFrames = async (videoPath, outputFolder) => {
         console.log(`Starting frame extraction from: ${videoPath}`);
         console.log(`Output folder: ${outputFolder}`);
         
-        ffmpeg(videoPath)
+        ffmpegInstance(videoPath)
             .on("start", (commandLine) => {
                 console.log(`FFmpeg command: ${commandLine}`);
             })
