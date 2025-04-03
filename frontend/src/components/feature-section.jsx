@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Video, ImageIcon, AudioLines, Zap, Shield, Clock } from "lucide-react"
+import SpotlightCard from "./ui/spotlightcard"
 
 export default function FeatureSection() {
   return (
@@ -13,7 +14,9 @@ export default function FeatureSection() {
         </div>
 
         <div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          <Card>
+ 
+        <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+          <Card >
             <CardHeader className="pb-2 p-4 md:p-6">
               <Zap className="h-5 w-5 md:h-6 md:w-6 mb-1 md:mb-2 text-primary" />
               <CardTitle className="text-lg md:text-xl">Fast Comparison</CardTitle>
@@ -24,8 +27,11 @@ export default function FeatureSection() {
               </CardDescription>
             </CardContent>
           </Card>
+</SpotlightCard>
 
+          <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
           <Card>
+
             <CardHeader className="pb-2 p-4 md:p-6">
               <Shield className="h-5 w-5 md:h-6 md:w-6 mb-1 md:mb-2 text-primary" />
               <CardTitle className="text-lg md:text-xl">Secure Uploads</CardTitle>
@@ -36,6 +42,9 @@ export default function FeatureSection() {
               </CardDescription>
             </CardContent>
           </Card>
+</SpotlightCard>
+
+<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
 
           <Card>
             <CardHeader className="pb-2 p-4 md:p-6">
@@ -48,6 +57,8 @@ export default function FeatureSection() {
               </CardDescription>
             </CardContent>
           </Card>
+</SpotlightCard>
+<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
 
           <Card>
             <CardHeader className="pb-2 p-4 md:p-6">
@@ -60,6 +71,9 @@ export default function FeatureSection() {
               </CardDescription>
             </CardContent>
           </Card>
+</SpotlightCard>
+
+<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
 
           <Card>
             <CardHeader className="pb-2 p-4 md:p-6">
@@ -72,6 +86,9 @@ export default function FeatureSection() {
               </CardDescription>
             </CardContent>
           </Card>
+</SpotlightCard> 
+
+<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
 
           <Card>
             <CardHeader className="pb-2 p-4 md:p-6">
@@ -84,6 +101,7 @@ export default function FeatureSection() {
               </CardDescription>
             </CardContent>
           </Card>
+</SpotlightCard>
         </div>
       </div>
     </section>
