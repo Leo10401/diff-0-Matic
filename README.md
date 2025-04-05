@@ -70,10 +70,4 @@ MIT License. Open to everyone.
 
 Made with ❤️ by Ayush
 
-yaml
-Copy
-Edit
 
----
-
-Want me to tailor this more toward your branding or include example API request/response formats for me
