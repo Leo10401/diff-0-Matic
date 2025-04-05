@@ -1,21 +1,52 @@
 'use client';
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Video, ImageIcon, FileText, AudioLines, ArrowRight, FoldersIcon, FileIcon } from "lucide-react";
 import MediaCompare from "@/components/media-compare";
 import HeroSection from "@/components/hero-section";
 import FeatureSection from "@/components/feature-section";
+import LoadingScreen from "@/components/ui/LoadingScreen";
 
 export default function Home() {
   const compareSectionRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  // Add timeout to ensure minimum loading time for better UX
+  useEffect(() => {
+    const minLoadingTime = setTimeout(() => {
+      window.addEventListener('load', () => {
+        setIsLoading(false);
+      });
+      
+      // Fallback in case the load event doesn't fire
+      const fallbackTimeout = setTimeout(() => {
+        setIsLoading(false);
+      }, 5000);
+      
+      return () => {
+        clearTimeout(fallbackTimeout);
+      };
+    }, 1500); // Minimum loading time of 1.5 seconds
+    
+    return () => {
+      clearTimeout(minLoadingTime);
+    };
+  }, []);
 
   const handleScrollToCompare = () => {
     compareSectionRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Handle 3D model loading status from HeroSection
+  const handleModelLoaded = () => {
+    setIsLoading(false);
+  };
+
   return (
-    <div className="flex min-h-screen flex-col inset-0 ">
+    <div className="flex min-h-screen flex-col inset-0">
+      <LoadingScreen isLoading={isLoading} />
+      
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center">
           <div className="mr-4 flex items-center space-x-2 ">
@@ -52,10 +83,9 @@ export default function Home() {
             </div>
           </div>
         </section>
-      <div className="mt-0">
-
-        <HeroSection onStartComparing={handleScrollToCompare} />
-      </div>
+        <div className="mt-0">
+          <HeroSection onStartComparing={handleScrollToCompare} onModelLoaded={handleModelLoaded} />
+        </div>
 
         <section
           ref={compareSectionRef}

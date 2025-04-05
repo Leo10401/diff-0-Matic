@@ -7,10 +7,11 @@ import Spline from '@splinetool/react-spline';
 import Link from "next/link";
 import RotatingText from "./ui/rotingtxt";
 
-function Model() {
+function Model({ onLoad }) {
   const group = useRef();
   // Load both the scene and animations
   const { scene, animations } = useGLTF("/smol.glb", true);
+  
   // Set up animations
   const { actions, names } = useAnimations(animations, group);
   
@@ -20,7 +21,10 @@ function Model() {
       // Play the first animation in the list
       actions[names[0]]?.reset().play();
     }
-  }, [actions, names]);
+    
+    // Signal that the GLB model has loaded
+    onLoad();
+  }, [actions, names, onLoad]);
 
   return (
     <group ref={group}>
@@ -29,8 +33,10 @@ function Model() {
   );
 }
 
-export default function HeroSection({ onStartComparing }) {
+export default function HeroSection({ onStartComparing, onModelLoaded }) {
   const [starCount, setStarCount] = useState(null);
+  const [glbLoaded, setGlbLoaded] = useState(false);
+  const [splineLoaded, setSplineLoaded] = useState(false);
 
   useEffect(() => {
     // Fetch the star count from GitHub API
@@ -46,6 +52,21 @@ export default function HeroSection({ onStartComparing }) {
 
     fetchStarCount();
   }, []);
+  
+  // Check if both models are loaded and notify parent component
+  useEffect(() => {
+    if (glbLoaded && splineLoaded && onModelLoaded) {
+      onModelLoaded();
+    }
+  }, [glbLoaded, splineLoaded, onModelLoaded]);
+
+  const handleGlbLoaded = () => {
+    setGlbLoaded(true);
+  };
+
+  const handleSplineLoaded = () => {
+    setSplineLoaded(true);
+  };
 
   return (
     <section className="w-full md:py-12 hidden sm:block">
@@ -81,7 +102,12 @@ export default function HeroSection({ onStartComparing }) {
             </div>
           </div>
           <div className="relative w-auto z-5 md:h-[500px] lg:h-[300px] xl:h-[500px] xl-h-fill rounded-4xl 2xl:h-[600px]">
-            <Spline className="rounded-4xl" scene="https://prod.spline.design/3uDK7WyDw-IrfcwN/scene.splinecode" />
+            {/* We add onLoad handler for Spline */}
+            <Spline 
+              className="rounded-4xl" 
+              scene="https://prod.spline.design/3uDK7WyDw-IrfcwN/scene.splinecode" 
+              onLoad={handleSplineLoaded}
+            />
             <div className="absolute bottom-5 right-6 h-10 rounded-2xl bg-[#111111] z-50">
               <Link
                 href="https://github.com/Leo10401/diff-0-Matic"
@@ -121,6 +147,13 @@ export default function HeroSection({ onStartComparing }) {
             </div>
           </div>
         </div>
+      </div>
+      
+      {/* Hidden Canvas to preload GLB model */}
+      <div style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}>
+        <Canvas>
+          <Model onLoad={handleGlbLoaded} />
+        </Canvas>
       </div>
     </section>
   );
