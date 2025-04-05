@@ -5,6 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { useRef, useEffect, useState } from "react";
 import Spline from '@splinetool/react-spline';
 import Link from "next/link";
+import RotatingText from "./ui/rotingtxt";
 
 function Model() {
   const group = useRef();
@@ -47,13 +48,25 @@ export default function HeroSection({ onStartComparing }) {
   }, []);
 
   return (
-    <section className="w-full  md:py-16 bg-muted hidden sm:block">
+    <section className="w-full md:py-12 hidden sm:block">
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-[1fr_600px] lg:gap-12 xl:grid-cols-[1fr_700px]">
           <div className="flex flex-col justify-center space-y-4">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Compare Media Side by Side
+            <div className="space-y-2 grid-cols-6">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none flex items-center flex-wrap">
+                <span className="mr-2">Compare</span>
+                <RotatingText
+                  texts={["Videos", "Audio", "Images", "Text", "Folders", "Documents"]}
+                  mainClassName="w-fit p-6 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 rounded-lg"
+                  staggerFrom={"last"}
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  exit={{ y: "-120%" }}
+                  staggerDuration={0.025}
+                  splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                  rotationInterval={2000}
+                />
               </h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
                 Upload videos, audio, images, or text and compare them instantly. Spot differences, make better
@@ -67,7 +80,7 @@ export default function HeroSection({ onStartComparing }) {
               </Button>
             </div>
           </div>
-          <div className="relative w-auto z-50 md:h-[500px] lg:h-[300px] xl:h-[500px] xl-h-fill rounded-4xl 2xl:h-[600px]">
+          <div className="relative w-auto z-5 md:h-[500px] lg:h-[300px] xl:h-[500px] xl-h-fill rounded-4xl 2xl:h-[600px]">
             <Spline className="rounded-4xl" scene="https://prod.spline.design/3uDK7WyDw-IrfcwN/scene.splinecode" />
             <div className="absolute bottom-5 right-6 h-10 rounded-2xl bg-[#111111] z-50">
               <Link
