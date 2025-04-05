@@ -33,7 +33,7 @@
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/mediadiff.git
+git clone https://github.com/Leo10401/diff-0-Matic.git
 cd mediadiff
 
 ```
