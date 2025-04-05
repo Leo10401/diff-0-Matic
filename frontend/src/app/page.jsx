@@ -52,8 +52,10 @@ export default function Home() {
             </div>
           </div>
         </section>
-      
+      <div className="mt-0">
+
         <HeroSection onStartComparing={handleScrollToCompare} />
+      </div>
 
         <section
           ref={compareSectionRef}

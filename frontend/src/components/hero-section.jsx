@@ -47,7 +47,7 @@ export default function HeroSection({ onStartComparing }) {
   }, []);
 
   return (
-    <section className="w-full py-12 md:py-24 bg-muted hidden sm:block">
+    <section className="w-full  md:py-16 bg-muted hidden sm:block">
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-[1fr_600px] lg:gap-12 xl:grid-cols-[1fr_700px]">
           <div className="flex flex-col justify-center space-y-4">
