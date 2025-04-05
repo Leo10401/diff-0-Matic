@@ -1,8 +1,8 @@
 # 🔍 diff-0-matic – Compare Text, Images, Audio, Video, Docs & More!
 
-**diff-o-matic** is your all-in-one comparison tool that goes way beyond just text! This web app makes it super easy to compare **Text**, **Audio**, **Images**, **Videos**, **Documents**, and even **ZIP files** — all from a clean, modern UI powered by **Next.js**, **React**, and **Tailwind CSS**.
+**diff-0-matic** is your all-in-one comparison tool that goes way beyond just text! This web app makes it super easy to compare **Text**, **Audio**, **Images**, **Videos**, **Documents**, and even **ZIP files** — all from a clean, modern UI powered by **Next.js**, **React**, and **Tailwind CSS**.
 
-> ✨ Whether you're spotting pixel-level image changes or finding the tiniest word edits — MediaDiff has you covered.
+> ✨ Whether you're spotting pixel-level image changes or finding the tiniest word edits — diff-0-matic has you covered.
 
 ## ⚡ Live Demo
 
