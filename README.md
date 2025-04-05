@@ -1,55 +1,79 @@
-# Diff-o-matic
+# 🔍 diff-0-matic – Compare Text, Images, Audio, Video, Docs & More!
 
-## Overview
-Diff-o-matic is a powerful web-based tool that compares and highlights differences between various types of media, including **images, text, audio, and video**. It helps users quickly identify variations and changes in files with ease.
+**diff-0-matic** is your all-in-one comparison tool that goes way beyond just text! This web app makes it super easy to compare **Text**, **Audio**, **Images**, **Videos**, **Documents**, and even **ZIP files** — all from a clean, modern UI powered by **Next.js**, **React**, and **Tailwind CSS**.
 
-## Features
-- 🖼 **Image Comparison**: Detects pixel-level differences between two images.
-- 📝 **Text Comparison**: Highlights differences between text files and documents.
-- 🎵 **Audio Comparison**: Compares waveforms to find changes in sound.
-- 📽 **Video Comparison**: Detects differences in frames and timestamps.
-- ⚡ **Fast & Accurate**: Uses efficient algorithms to analyze files quickly.
+> ✨ Whether you're spotting pixel-level image changes or finding the tiniest word edits — diff-0-matic has you covered.
+
+## ⚡ Live Demo
+
+🚀 [Check it out here](https://diff-0-matic.vercel.app/)
+
+## 🎯 Features
+
+- 📝 **Text Comparison**: Side-by-side comparison with colored highlights for additions/removals.
+- 🖼️ **Image Comparison**: Spot differences visually (ideal for pixel diffs or design tweaks).
+- 🔊 **Audio Comparison**: Visual waveform-based comparison for audio analysis.
+- 🎥 **Video Comparison**: Frame-by-frame difference detection with timestamps.
+- 📄 **Document Comparison**: Easily compare PDFs, DOCX, and other document formats.
+- 🗜️ **ZIP File Comparison**: View and compare the contents of zipped files.
+- 🧼 **Reset with Ease**: One-click reset for inputs and results.
+- 🌙 **Modern UI**: Clean, responsive design built with Tailwind CSS.
 
 
-## How It Works
-1. Upload two files of the same type (image, text, audio, or video).
-2. Click **Compare** to analyze the differences.
-3. View the highlighted changes and differences instantly.
 
-## Installation & Usage
-### Running Locally
-If you want to run Diff-o-matic locally, follow these steps:
+## 🛠 Tech Stack
 
-```sh
-gh repo clone Leo10401/Diff-o-matic
-cd diff-o-matic
-npm install
-npm start
+- **Frontend**: Next.js + React
+- **Styling**: Tailwind CSS
+- **HTTP Client**: Axios
+- **Comparison Engine**: Backend API (Node.js/Python/Go/etc.)
+
+## 🧑‍💻 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/Leo10401/diff-0-Matic.git
+cd mediadiff
+
 ```
 
-Then, open `http://localhost:3000` in your browser.
+### 2. Install dependencies
+```bash
+npm install
+```
+### 3. Set environment variable
 
-### Deployment
-You can deploy this project using platforms like **Vercel, Netlify, or Render**.
+```
+env
+```
+# .env.local
+```
+NEXT_PUBLIC_API_URL=http://localhost:5000
+```
+### 4. Start development server
+```bash
+npm run dev
+```
+🚀 Upcoming Enhancements
+ Drag & drop support for all file types
 
-## Technologies Used
-- **Frontend**: React (Next.js), Tailwind CSS
-- **Backend**: Node.js, Express.js
-- **Storage**: Cloudinary (for media storage)
-- **Comparison Libraries**: ImageDiff.js, WaveSurfer.js (for audio), FFmpeg (for video)
+ Dark mode support
 
-## Roadmap
-- ✅ Image, Text, Audio, Video Comparison
-- ⏳ Add support for PDF file comparison
-- ⏳ Improve AI-based difference detection
-- ⏳ Add API for third-party integrations
+ Downloadable diff reports
 
-## Contributing
-Contributions are welcome! Feel free to fork the repo, open issues, or submit pull requests.
+🙌 Contribute
+Have ideas or found a bug? Feel free to open an issue or submit a PR!
 
-## License
-This project is licensed under the **MIT License**.
+📜 License
+MIT License. Open to everyone.
 
-## Contact
-For any queries or suggestions, reach out to [your email] or open an issue on GitHub.
-"# diff-0-Matic" 
+Made with ❤️ by Ayush
+
+yaml
+Copy
+Edit
+
+---
+
+Want me to tailor this more toward your branding or include example API request/response formats for me
