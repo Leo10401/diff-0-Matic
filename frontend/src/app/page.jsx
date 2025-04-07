@@ -7,6 +7,7 @@ import MediaCompare from "@/components/media-compare";
 import HeroSection from "@/components/hero-section";
 import FeatureSection from "@/components/feature-section";
 import LoadingScreen from "@/components/ui/LoadingScreen";
+import AnimatedContent from "@/components/ui/animatedcontent";
 
 export default function Home() {
   const compareSectionRef = useRef(null);
@@ -83,6 +84,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+      <AnimatedContent loop={true}>
+
         <div className="mt-0">
           <HeroSection onStartComparing={handleScrollToCompare} onModelLoaded={handleModelLoaded} />
         </div>
@@ -155,6 +158,7 @@ export default function Home() {
         </section>
 
         <FeatureSection />
+      </AnimatedContent>
 
         <section className="bg-muted py-8 md:py-24">
           <div className="container">
